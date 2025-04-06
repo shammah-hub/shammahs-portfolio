@@ -236,7 +236,7 @@ export default function Homepage() {
                 variants={fadeIn}
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                  Hi, I'm <span className="text-black dark:text-black">Shammah Maida</span>
+                  Hi, I am <span className="text-black dark:text-black">Shammah Maida</span>
                 </h1>
                 <p className="mt-4 text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
                   Front-End Developer specializing in
@@ -320,7 +320,7 @@ export default function Homepage() {
                   With over 2 and a half years of experience in web and mobile development, I specialize in creating robust applications using modern technologies. My expertise spans across the full stack, allowing me to deliver end-to-end solutions that meet business goals and exceed user expectations.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  I'm passionate about clean code, performance optimization, and creating intuitive user experiences. My approach combines technical excellence with a deep understanding of user needs to build products that make a real difference.
+                  I am passionate about clean code, performance optimization, and creating intuitive user experiences. My approach combines technical excellence with a deep understanding of user needs to build products that make a real difference.
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 mb-8">
@@ -375,7 +375,7 @@ export default function Homepage() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">My Skills</h2>
               <div className="mt-2 h-1 w-20 bg-black mx-auto"></div>
               <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                I've worked with a variety of technologies in the web and mobile development world.
+                i have Worked with a variety of technologies in the web and mobile development world.
                 Here are my main areas of expertise.
               </p>
             </motion.div>
@@ -415,7 +415,7 @@ export default function Homepage() {
               <div className="mt-2 h-1 w-20 bg-black mx-auto"></div>
               <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 I provide end-to-end development services tailored to your specific needs.
-                From concept to deployment, I'm committed to delivering high-quality solutions.
+                From concept to deployment, I am committed to delivering high-quality solutions.
               </p>
             </motion.div>
 

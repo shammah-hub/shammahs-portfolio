@@ -1,8 +1,9 @@
 // app/api/contact/route.js
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { NextRequest } from 'next/server';
 
-export async function POST(request: { json: () => any; }) {
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, subject, message, recipient, siteOrigin } = body;
@@ -36,8 +37,8 @@ export async function POST(request: { json: () => any; }) {
     // Email content
     const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: recipient,
       replyTo: email,
+      to: recipient,
       subject: subject || `New contact from ${name}`,
       text: `
         Name: ${name}
@@ -73,4 +74,4 @@ export async function POST(request: { json: () => any; }) {
       { status: 500 }
     );
   }
-}n
+}

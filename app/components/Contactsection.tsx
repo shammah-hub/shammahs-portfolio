@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
@@ -9,9 +9,23 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
+// Define TypeScript interfaces for form data and submit status
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface SubmitStatus {
+  success: boolean;
+  error: boolean;
+  message: string;
+}
+
 export default function ContactSection() {
   // Form state
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
@@ -19,15 +33,15 @@ export default function ContactSection() {
   });
   
   // Form submission states
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({
     success: false,
     error: false,
     message: ''
   });
 
   // Handle input changes
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
@@ -36,7 +50,7 @@ export default function ContactSection() {
   };
 
   // Handle form submission
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ success: false, error: false, message: '' });
@@ -71,11 +85,11 @@ export default function ContactSection() {
         // API error
         throw new Error(result.message || 'Failed to send message');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       setSubmitStatus({
         success: false,
         error: true,
-        message: error.message || 'Something went wrong. Please try again later.'
+        message: error instanceof Error ? error.message : 'Something went wrong. Please try again later.'
       });
     } finally {
       setIsSubmitting(false);
