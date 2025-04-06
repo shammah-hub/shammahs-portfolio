@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from "next/link";
-import { FaReact, FaHtml5, FaCss3Alt, FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaReact, FaHtml5, FaCss3Alt, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiFlutter, SiNextdotjs, SiJavascript, SiTypescript } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import ContactSection from '@/app/components/Contactsection';
