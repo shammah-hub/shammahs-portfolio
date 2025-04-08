@@ -108,17 +108,7 @@ export default function Homepage() {
     ? projects 
     : projects.filter(project => project.category.includes(activeTab));
 
-  const skills = [
-    { name: "React", icon: <FaReact className="text-black" size={40} />, level: 95 },
-    { name: "Next.js", icon: <SiNextdotjs size={40} />, level: 90 },
-    { name: "React Native", icon: <FaReact className="text-black" size={40} />, level: 85 },
-    { name: "Flutter", icon: <SiFlutter className="text-black" size={40} />, level: 80 },
-    { name: "HTML", icon: <FaHtml5 className="text-black" size={40} />, level: 95 },
-    { name: "CSS", icon: <FaCss3Alt className="text-black" size={40} />, level: 90 },
-    { name: "JavaScript", icon: <SiJavascript className="text-black" size={40} />, level: 95 },
-    { name: "TypeScript", icon: <SiTypescript className="text-black" size={40} />, level: 85 }
-    
-  ];
+ 
 
   const services = [
     {
