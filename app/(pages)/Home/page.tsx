@@ -361,131 +361,157 @@ export default function Homepage() {
         </section>
 
         {/* SKILSS SECTION  */}
-        <section id="skills" className="py-16 md:py-24 bg-[#1e1e1e] dark:bg-gray-800 transition-colors duration-300">
+        <section id="skills" className="py-12 md:py-24 bg-[#1e1e1e] dark:bg-gray-800 transition-colors duration-300">
+  <div className="container mx-auto px-4">
+    {/* Section Header */}
+    <div className="text-center mb-12">
+      <h1 className="text-2xl md:text-3xl text-white font-bold">My Skills</h1>
+      <div className="mt-2 h-1 w-20 bg-white mx-auto"></div>
+    </div>
+
+    {/* Skills Display - Desktop Version (hidden on mobile) */}
+    <div className="hidden md:block relative my-24">
+      {/* First div rotated counterclockwise */}
+      <div className="absolute h-20 w-full bg-white border-2 px-6 border-gray-300 transform -rotate-7">       
+        <div className="flex items-center justify-between h-full">
+          <div className="flex items-center">
+            <Image src="/react.png" width={100} height={100} alt="React" className="w-8 h-8" />
+            <span className="ml-2 text-lg">React</span>
+          </div>
           
-
-          {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="text-center mb-16"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">My Skills</h2>
-              <div className="mt-2 h-1 w-20 bg-black mx-auto"></div>
-              <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                i have Worked with a variety of technologies in the web and mobile development world.
-                Here are my main areas of expertise.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {skills.map((skill, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-1"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeIn}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="mr-4">{skill.icon}</div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{skill.name}</h3>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div> */}
-          <div className='h-24 flex justify-center text-3xl'>
-          <h1 className='txt-2xl text-white font-bold'>My Skills</h1>
-
+          <div className="flex items-center">
+            <Image src="/html.png" width={100} height={100} alt="HTML" className="w-8 h-8" />
+            <span className="ml-2 text-lg">HTML</span>
           </div>
 
-                    
-        <div className="relative flex flex-col items-center justify-center w-full my-24">
-  {/* First div rotated counterclockwise */}
-  <div className="absolute h-20 w-screen bg-white border-2 px-6 border-gray-300 transform -rotate-7">       
-    <div className="flex items-center justify-between h-full">
-      <div className="flex items-center">
-      <Image src="/react.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">React</span>
-      </div>
-      
-      <div className="flex items-center">
-      <Image src="/html.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">HTML</span>
+          <div className="flex items-center">
+            <Image src="/wordpress.png" width={100} height={100} alt="WordPress" className="w-8 h-8" />
+            <span className="ml-2 text-lg">WordPress</span>
+          </div>
+
+          <div className="flex items-center">
+            <Image src="/flutter.png" width={100} height={100} alt="Flutter" className="w-8 h-8" />
+            <span className="ml-2 text-lg">Flutter</span>
+          </div>
+          
+          <div className="flex items-center">
+            <Image src="/css.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
+            <span className="ml-2 text-lg">CSS</span>
+          </div>
+
+          <div className="flex items-center">
+            <Image src="/images.jpg" width={100} height={100} alt="Firebase" className="w-8 h-8" />
+            <span className="ml-2 text-lg">Firebase</span>
+          </div>
+          
+          <div className="flex items-center">
+            <Image src="/next.png" width={100} height={100} alt="Next.js" className="w-8 h-8" />
+            <span className="ml-2 text-lg">Next.js</span>
+          </div>
+          
+          <div className="flex items-center">
+            <Image src="/github.png" width={100} height={100} alt="GitHub" className="w-8 h-8" />
+            <span className="ml-2 text-lg">GitHub</span>
+          </div>
+        </div>
       </div>
 
-      <div className="flex items-center">
-      <Image src="/wordpress.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">WordPress</span>
-      </div>
+      {/* Second div rotated clockwise */}
+      <div className="absolute h-20 w-full bg-white border-2 px-6 border-gray-300 transform rotate-7">       
+        <div className="flex items-center justify-between h-full">
+          <div className="flex items-center">
+            <Image src="/flutter.png" width={100} height={100} alt="Flutter" className="w-8 h-8" />
+            <span className="ml-2 text-lg">Flutter</span>
+          </div>
+          
+          <div className="flex items-center">
+            <Image src="/react.png" width={100} height={100} alt="React Native" className="w-8 h-8" />
+            <span className="ml-2 text-lg">React Native</span>
+          </div>
+          
+          <div className="flex items-center">
+            <Image src="/vscode.png" width={100} height={100} alt="VS Code" className="w-8 h-8" />
+            <span className="ml-2 text-lg">VS Code</span>
+          </div>
+          
+          <div className="flex items-center">
+            <Image src="/tailwind.png" width={100} height={100} alt="Tailwind" className="w-8 h-8" />
+            <span className="ml-2 text-lg">Tailwind</span>
+          </div>
 
-      <div className="flex items-center">
-      <Image src="/flutter.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">Flutter</span>
-      </div>
-      
-      <div className="flex items-center">
-        <Image src="/css.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-         <span className="ml-2 text-lg">CSS</span>
-      </div>
-
-      <div className="flex items-center">
-      <Image src="/images.jpg" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">FireBase</span>
-      </div>
-      
-      <div className="flex items-center">
-      <Image src="/next.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">Next.js</span>
-      </div>
-      
-      <div className="flex items-center">
-      <Image src="/github.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">GitHub</span>
+          <div className="flex items-center">
+            <Image src="/images.jpg" width={100} height={100} alt="Firebase" className="w-8 h-8" />
+            <span className="ml-2 text-lg">Firebase</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  {/* Second div rotated clockwise */}
-  <div className="absolute h-20 w-screen bg-white border-2 px-6 border-gray-300 transform rotate-7">       
-    <div className="flex items-center justify-between h-full">
-    <div className="flex items-center">
-    <Image src="/flutter.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-    <span className="ml-2 text-lg">Flutter</span>
+    {/* Skills Display - Mobile Version (shown only on mobile) */}
+    <div className="md:hidden">
+      <div className="grid grid-cols-2 gap-4">
+        {/* First Row */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/react.png" width={100} height={100} alt="React" className="w-10 h-10 mb-2" />
+          <span className="text-center">React</span>
+        </div>
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/html.png" width={100} height={100} alt="HTML" className="w-10 h-10 mb-2" />
+          <span className="text-center">HTML</span>
+        </div>
+        
+        {/* Second Row */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/wordpress.png" width={100} height={100} alt="WordPress" className="w-10 h-10 mb-2" />
+          <span className="text-center">WordPress</span>
+        </div>
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/flutter.png" width={100} height={100} alt="Flutter" className="w-10 h-10 mb-2" />
+          <span className="text-center">Flutter</span>
+        </div>
+        
+        {/* Third Row */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/css.png" width={100} height={100} alt="CSS" className="w-10 h-10 mb-2" />
+          <span className="text-center">CSS</span>
+        </div>
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/images.jpg" width={100} height={100} alt="Firebase" className="w-10 h-10 mb-2" />
+          <span className="text-center">Firebase</span>
+        </div>
+        
+        {/* Fourth Row */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/next.png" width={100} height={100} alt="Next.js" className="w-10 h-10 mb-2" />
+          <span className="text-center">Next.js</span>
+        </div>
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/github.png" width={100} height={100} alt="GitHub" className="w-10 h-10 mb-2" />
+          <span className="text-center">GitHub</span>
+        </div>
+        
+        {/* Fifth Row */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/react.png" width={100} height={100} alt="React Native" className="w-10 h-10 mb-2" />
+          <span className="text-center">React Native</span>
+        </div>
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/vscode.png" width={100} height={100} alt="VS Code" className="w-10 h-10 mb-2" />
+          <span className="text-center">VS Code</span>
+        </div>
+        
+        {/* Sixth Row */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+          <Image src="/tailwind.png" width={100} height={100} alt="Tailwind" className="w-10 h-10 mb-2" />
+          <span className="text-center">Tailwind</span>
+        </div>
       </div>
-      
-      <div className="flex items-center">
-      <Image src="/react.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">React Native</span>
-      </div>
-      
-      <div className="flex items-center">
-      <Image src="/vscode.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">VS Code</span>
-      </div>
-
-      
-      <div className="flex items-center">
-      <Image src="/tailwind.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">Tailwind</span>
-      </div>
-
-      <div className="flex items-center">
-      <Image src="/images.jpg" width={100} height={100} alt="CSS" className="w-8 h-8" />
-      <span className="ml-2 text-lg">FireBase</span>
-      </div>
-      
     </div>
+    
+    {/* This div provides space for the crossed divs on desktop */}
+    <div className="hidden md:block h-40"></div>
   </div>
-</div>
-
-
-        </section>
+</section>
 
         {/* Services Section */}
         <section id="services" className="py-16 md:py-24 bg-[#1e1e1e] dark:bg-gray-900 transition-colors duration-300">
