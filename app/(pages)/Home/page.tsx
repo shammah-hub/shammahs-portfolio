@@ -75,11 +75,11 @@ export default function Homepage() {
     {
       id: 4,
       title: "Skribe",
-      description: "Subscription Management app",
+      description: "Subscription Management App",
       image: "/skribe.png",
       category: ["flutter"],
       technologies: ["Flutter", "FireBase"],
-      link: "https://skribe.example.com"
+      link: "https://skribe-website.vercel.app/"
     },
     {
       id: 5,
@@ -118,6 +118,7 @@ export default function Homepage() {
       technologies: ["Next.js", "React"],
       link: "https://circlepaytech.com//"
     },
+    
   ];
 
   const filteredProjects = activeTab === 'all' 
