@@ -92,7 +92,7 @@ export default function Homepage() {
     },
 
     {
-      id: 1,
+      id: 6,
       title: "Talim",
       description: "Full-featured e-commerce platform with payment integration",
       image: "/talm.png",
@@ -100,7 +100,24 @@ export default function Homepage() {
       technologies: ["Next.js", "React"],
       link: "https://talim-landing-page.vercel.app/"
     },
-    
+     {
+      id: 7,
+      title: "Empower Dreams",
+      description: "Creating meaningful change in communities worldwide",
+      image: "/REC.png",
+      category: ["react", "next"],
+      technologies: ["Next.js", "React"],
+      link: "https://www.empowerdreamz.org/"
+    },
+     {
+      id: 8,
+      title: "Circlepay",
+      description: "Technology powered contributions meet cultural savings values. Digitized Ajo. Real-time visibility. Zero drama.",
+      image: "/24.10.2025_22.23.03_REC.png",
+      category: ["react", "next"],
+      technologies: ["Next.js", "React"],
+      link: "https://circlepaytech.com//"
+    },
   ];
 
   const filteredProjects = activeTab === 'all' 
