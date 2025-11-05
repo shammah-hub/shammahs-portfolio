@@ -51,7 +51,7 @@ export default function Homepage() {
       image: "/payton.png",
       category: ["flutter"],
       technologies: ["flutter"],
-      link: "https://www.ledgafinance.com/"
+      link: "https://play.google.com/store/apps/details?id=com.payton.app&hl=en/"
     },
     
     {
@@ -61,7 +61,7 @@ export default function Homepage() {
       image: "/chopwell.png",
       category: ["flutter"],
       technologies: ["React Native", "Firebase", "Redux"],
-      link: "https://play.google.com/store/apps/details?id=chopwell.merchant"
+      link: "https://play.google.com/store/apps/details?id=chopwell.rider&hl=en"
     },
     {
       id: 3,
@@ -95,7 +95,7 @@ export default function Homepage() {
       id: 6,
       title: "Talim",
       description: "Full-featured e-commerce platform with payment integration",
-      image: "/talm.png",
+      image: "/vi.png",
       category: ["react", "next"],
       technologies: ["Next.js", "React"],
       link: "https://talim-landing-page.vercel.app/"
