@@ -47,7 +47,7 @@ export default function Homepage() {
     {
       id: 6,
       title: "payton",
-      description: "Revolutionizing Financial Management Simplify and streamline your institution's finances with Ledga's innovative platform",
+      description: "Revolutionizing Financial Management Simplify and streamline your institution's finances with payton's innovative platform",
       image: "/payton.png",
       category: ["flutter"],
       technologies: ["flutter"],
@@ -57,7 +57,7 @@ export default function Homepage() {
     {
       id: 2,
       title: "ChopWell Mobile App",
-      description: "Cross-platform mobile app for tracking fitness goals",
+      description: "Cross-platform mobile app for othering food delivery riders to manage orders, track deliveries, and communicate with customers",
       image: "/chopwell.png",
       category: ["flutter"],
       technologies: ["React Native", "Firebase", "Redux"],
@@ -94,11 +94,11 @@ export default function Homepage() {
     {
       id: 6,
       title: "Talim",
-      description: "Full-featured e-commerce platform with payment integration",
+      description: "Full-featured school managment platform with payment integration",
       image: "/vi.png",
       category: ["react", "next"],
       technologies: ["Next.js", "React"],
-      link: "https://talim-landing-page.vercel.app/"
+      link: "https://www.mytalim.com/"
     },
      {
       id: 7,
