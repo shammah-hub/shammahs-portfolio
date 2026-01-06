@@ -4,13 +4,24 @@ import React, { useState, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { 
-  Smartphone, ArrowUpRight, Github, Linkedin, 
-  Zap,  
-  Quote, Server, CheckCircle, Code2, Cpu,
-  Search, Palette, Terminal, Rocket,
-  Briefcase, Clock, Shield,
-  ShieldCheck
-} from 'lucide-react';
+  FaMobile,
+  FaArrowRight,
+  FaGithub,
+  FaLinkedin,
+  FaBolt,
+  FaQuoteLeft,
+  FaServer,
+  FaCheckCircle,
+  FaCode,
+  FaLaptop,
+  FaSearch,
+  FaPaintBrush,
+  FaTerminal,
+  FaRocket,
+  FaBriefcase,
+  FaShield,
+  FaClockO
+} from 'react-icons/fa';
 
 // --- TS Compliant Animation Variants ---
 const fadeInUp: Variants = {
@@ -150,18 +161,18 @@ export default function ShammahUltimatePortfolio() {
       <section id="stack" className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-4">
           <div className="md:col-span-2 bg-white p-10 rounded-3xl border border-slate-100 flex flex-col justify-between h-80">
-            <Smartphone className="text-indigo-600 w-8 h-8" />
+            <FaMobile className="text-indigo-600 w-8 h-8" />
             <div>
               <h4 className="text-2xl font-bold mb-4">Mobile Systems</h4>
               <p className="text-slate-500 text-sm">Flutter & React Native expert specializing in high-fidelity animations and offline-first syncing.</p>
             </div>
           </div>
           <div className="bg-slate-900 text-white p-10 rounded-3xl flex flex-col justify-between">
-            <Server className="text-indigo-400 w-8 h-8" />
+            <FaServer className="text-indigo-400 w-8 h-8" />
             <p className="text-xl font-bold">Scalable <br />Backends</p>
           </div>
           <div className="bg-indigo-600 text-white p-10 rounded-3xl flex flex-col justify-between">
-            <Zap className="text-white w-8 h-8" />
+            <FaBolt className="text-white w-8 h-8" />
             <p className="text-xl font-bold">Optimization <br />& Audits</p>
           </div>
         </div>
@@ -246,10 +257,10 @@ export default function ShammahUltimatePortfolio() {
           </div>
           <div className="grid md:grid-cols-4 gap-12 relative">
             {[
-              { icon: <Search />, title: "Discovery", desc: "Defining product scope, stack selection, and mapping the user journey." },
-              { icon: <Palette />, title: "Architecture", desc: "Designing system schemas and modular UI components for scalability." },
-              { icon: <Terminal />, title: "Engineering", desc: "Clean, type-safe development with daily sprints and CI/CD integration." },
-              { icon: <Rocket />, title: "Launch & QA", desc: "Stress testing, store submission, and post-launch performance monitoring." }
+              { icon: <FaSearch />, title: "Discovery", desc: "Defining product scope, stack selection, and mapping the user journey." },
+              { icon: <FaPaintBrush />, title: "Architecture", desc: "Designing system schemas and modular UI components for scalability." },
+              { icon: <FaTerminal />, title: "Engineering", desc: "Clean, type-safe development with daily sprints and CI/CD integration." },
+              { icon: <FaRocket />, title: "Launch & QA", desc: "Stress testing, store submission, and post-launch performance monitoring." }
             ].map((step, i) => (
               <motion.div key={i} variants={fadeInUp} initial="initial" whileInView="whileInView" transition={{ delay: i * 0.1 }} className="relative z-10 text-center md:text-left">
                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 text-indigo-600 border border-slate-100 shadow-sm mx-auto md:mx-0">
@@ -273,9 +284,9 @@ export default function ShammahUltimatePortfolio() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { plan: "Consulting", price: "$70/hr", icon: <Clock />, perks: ["Code Audits", "Feature Refactors", "Technical Advice"] },
-              { plan: "Fixed Project", price: "Custom", icon: <Briefcase />, perks: ["Full Product Builds", "Defined Milestones", "Post-Launch Support"] },
-              { plan: "Retainer", price: "Priority", icon: <Shield />, perks: ["Dedicated Weekly Hours", "Emergency Fixes", "Continuous Dev"] }
+              { plan: "Consulting", price: "$70/hr", icon: <FaClockO />, perks: ["Code Audits", "Feature Refactors", "Technical Advice"] },
+              { plan: "Fixed Project", price: "Custom", icon: <FaBriefcase />, perks: ["Full Product Builds", "Defined Milestones", "Post-Launch Support"] },
+              { plan: "Retainer", price: "Priority", icon: <FaShield />, perks: ["Dedicated Weekly Hours", "Emergency Fixes", "Continuous Dev"] }
             ].map((item, i) => (
               <motion.div key={i} variants={fadeInUp} initial="initial" whileInView="whileInView" className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5 hover:border-indigo-500 transition-colors">
                 <div className="text-indigo-400 mb-8">{item.icon}</div>
@@ -284,7 +295,7 @@ export default function ShammahUltimatePortfolio() {
                 <ul className="space-y-4">
                   {item.perks.map((perk, j) => (
                     <li key={j} className="flex items-center gap-3 text-slate-400 text-sm">
-                      <CheckCircle className="w-4 h-4 text-indigo-500" /> {perk}
+                      <FaCheckCircle className="w-4 h-4 text-indigo-500" /> {perk}
                     </li>
                   ))}
                 </ul>
@@ -359,7 +370,7 @@ export default function ShammahUltimatePortfolio() {
                 <div className="px-4 pb-4">
                   <div className="flex justify-between items-start mb-4">
                     <h4 className="text-xl font-bold">{p.title}</h4>
-                    <ArrowUpRight className="text-slate-300 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
+                    <FaArrowRight className="text-slate-300 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
                   </div>
                   <p className="text-slate-500 text-sm mb-4">{p.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -380,17 +391,17 @@ export default function ShammahUltimatePortfolio() {
       <section className="py-32 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
           <div>
-            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6"><Code2 className="text-indigo-600" /></div>
+            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6"><FaCode className="text-indigo-600" /></div>
             <h3 className="text-xl font-bold mb-4">Mobile Engineering</h3>
             <p className="text-slate-500 text-sm">Cross-platform mastery for iOS & Android with a single codebase.</p>
           </div>
           <div>
-            <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mb-6"><Cpu className="text-slate-900" /></div>
+            <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mb-6"><FaLaptop className="text-slate-900" /></div>
             <h3 className="text-xl font-bold mb-4">Systems Design</h3>
             <p className="text-slate-500 text-sm">Architecting the skeletal framework of complex web applications.</p>
           </div>
           <div>
-            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6"><ShieldCheck className="text-indigo-600" /></div>
+            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6"><FaShield className="text-indigo-600" /></div>
             <h3 className="text-xl font-bold mb-4">Security Audits</h3>
             <p className="text-slate-500 text-sm">Hardening data protection and ensuring API integrity.</p>
           </div>
@@ -400,7 +411,7 @@ export default function ShammahUltimatePortfolio() {
       {/* 8. TESTIMONIALS (Minimal Floating Design) */}
       <section className="py-32 px-6 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto relative">
-          <Quote className="absolute top-0 left-0 w-32 h-32 text-indigo-500 opacity-10 -translate-x-12 -translate-y-12" />
+          <FaQuoteLeft className="absolute top-0 left-0 w-32 h-32 text-indigo-500 opacity-10 -translate-x-12 -translate-y-12" />
           <div className="grid md:grid-cols-2 gap-24 relative z-10">
             <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView">
               <p className="text-3xl font-light italic leading-tight mb-8">"Shammah brings a level of technical foresight that saved our project months of refactoring."</p>
@@ -447,8 +458,8 @@ export default function ShammahUltimatePortfolio() {
              <a href="tel:+2347042924951" className="text-base text-slate-600 hover:text-indigo-600 transition-colors mt-3 block">+234 704 292 4951</a>
           </div>
           <div className="flex gap-4">
-            <a href="https://github.com/shammah-hub" className="p-5 bg-slate-50 rounded-2xl hover:bg-black hover:text-white transition-all"><Github className="w-5 h-5" /></a>
-            <a href="https://linkedin.com/in/shammah-maida123/" className="p-5 bg-slate-50 rounded-2xl hover:bg-black hover:text-white transition-all"><Linkedin className="w-5 h-5" /></a>
+            <a href="https://github.com/shammah-hub" className="p-5 bg-slate-50 rounded-2xl hover:bg-black hover:text-white transition-all"><FaGithub className="w-5 h-5" /></a>
+            <a href="https://linkedin.com/in/shammah-maida123/" className="p-5 bg-slate-50 rounded-2xl hover:bg-black hover:text-white transition-all"><FaLinkedin className="w-5 h-5" /></a>
           </div>
         </div>
       </footer>
