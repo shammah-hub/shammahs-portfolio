@@ -414,11 +414,11 @@ export default function ShammahUltimatePortfolio() {
           <FaQuoteLeft className="absolute top-0 left-0 w-32 h-32 text-indigo-500 opacity-10 -translate-x-12 -translate-y-12" />
           <div className="grid md:grid-cols-2 gap-24 relative z-10">
             <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView">
-              <p className="text-3xl font-light italic leading-tight mb-8">"Shammah brings a level of technical foresight that saved our project months of refactoring."</p>
+              <p className="text-3xl font-light italic leading-tight mb-8">&quot;Shammah brings a level of technical foresight that saved our project months of refactoring.&quot;</p>
               <div className="flex items-center gap-4 text-indigo-400 font-bold text-xs uppercase tracking-widest"><span className="w-8 h-[1px] bg-indigo-500"></span> Lead Architect, Payton</div>
             </motion.div>
             <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" className="md:mt-32">
-              <p className="text-3xl font-light italic leading-tight mb-8">"Professional, disciplined, and delivers code that is a joy to read."</p>
+              <p className="text-3xl font-light italic leading-tight mb-8">&quot;Professional, disciplined, and delivers code that is a joy to read.&quot;</p>
               <div className="flex items-center gap-4 text-indigo-400 font-bold text-xs uppercase tracking-widest"><span className="w-8 h-[1px] bg-indigo-500"></span> Founder, Talim</div>
             </motion.div>
           </div>
