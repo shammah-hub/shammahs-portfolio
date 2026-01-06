@@ -1,51 +1,41 @@
-// pages/index.js or app/page.js (for App Router)
-"use client"; // Remove this if using Pages Router
+"use client";
 
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+import React, { useState, useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import Link from "next/link";
-import {FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { CiMobile2 } from "react-icons/ci";
-import { FaCode } from "react-icons/fa6";
-import { MdComputer } from "react-icons/md";
-import { CgMoreO } from "react-icons/cg";
+import { 
+  Smartphone, ArrowUpRight, Github, Linkedin, 
+  Zap,  
+  Quote, Server, CheckCircle, Code2, Cpu,
+  Search, Palette, Terminal, Rocket,
+  Briefcase, Clock, Shield,
+  ShieldCheck
+} from 'lucide-react';
 
+// --- TS Compliant Animation Variants ---
+const fadeInUp: Variants = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+};
 
+const transitionSettings = { 
+  duration: 0.8, 
+  ease: [0.16, 1, 0.3, 1] as const 
+};
 
-import ContactSection from '@/app/components/Contactsection';
-
-export default function Homepage() {
+export default function ShammahUltimatePortfolio() {
+  const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check for saved theme preference or use system preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   const projects = [
     {
-      id: 6,
+      id: 1,
       title: "payton",
       description: "Revolutionizing Financial Management Simplify and streamline your institution's finances with payton's innovative platform",
       image: "/payton.png",
@@ -53,7 +43,6 @@ export default function Homepage() {
       technologies: ["flutter"],
       link: "https://play.google.com/store/apps/details?id=com.payton.app&hl=en/"
     },
-    
     {
       id: 2,
       title: "ChopWell Mobile App",
@@ -90,7 +79,6 @@ export default function Homepage() {
       technologies: ["next"],
       link: "https://nabteb.example.com"
     },
-
     {
       id: 6,
       title: "Talim",
@@ -100,7 +88,7 @@ export default function Homepage() {
       technologies: ["Next.js", "React"],
       link: "https://www.mytalim.com/"
     },
-     {
+    {
       id: 7,
       title: "Empower Dreams",
       description: "Creating meaningful change in communities worldwide",
@@ -109,7 +97,7 @@ export default function Homepage() {
       technologies: ["Next.js", "React"],
       link: "https://www.empowerdreamz.org/"
     },
-     {
+    {
       id: 8,
       title: "Circlepay",
       description: "Technology powered contributions meet cultural savings values. Digitized Ajo. Real-time visibility. Zero drama.",
@@ -118,629 +106,352 @@ export default function Homepage() {
       technologies: ["Next.js", "React"],
       link: "https://circlepaytech.com//"
     },
-    
   ];
 
   const filteredProjects = activeTab === 'all' 
     ? projects 
     : projects.filter(project => project.category.includes(activeTab));
 
- 
-
-  const services = [
-    {
-      title: "Web Application Development",
-      description: "End-to-end web application development using React and Next.js with responsive designs and optimal performance.",
-      icon: <FaCode  size={32} />
-    },
-    {
-      title: "Mobile App Development",
-      description: "Cross-platform mobile applications using React Native and Flutter that deliver native-like experiences.",
-      icon: <CiMobile2  size={32} />
-    },
-    {
-      title: "Frontend Development",
-      description: "Creating stunning user interfaces with modern HTML, CSS, and JavaScript leveraging the latest frameworks.",
-      icon: <MdComputer  size={32} />
-    },
-    {
-      title: "Full-Stack Solutions",
-      description: "Complete solutions from frontend to backend integration using Next.js and various database technologies.",
-      icon: <CgMoreO size={32} />
-    }
-  ];
-
-  // Framer Motion variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
   return (
-    <div className={`${darkMode ? 'dark' : ''}`}>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Head>
-          <title>Shammah Maida | Front-End Developer</title>
-          <meta name="description" content="Portfolio of a Full-Stack Developer specializing in React, Next.js, React Native, and Flutter" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+    <div className="bg-white text-[#0f172a] selection:bg-indigo-600 selection:text-white antialiased overflow-x-hidden">
+      
+      {/* 1. NAVIGATION */}
+      <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${scrolled ? 'py-4 bg-white/90 backdrop-blur-md border-b border-slate-100' : 'py-8 bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div className="text-xl font-black tracking-tighter">SM<span className="text-indigo-600">.</span></div>
+          <div className="hidden md:flex gap-8 items-center text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+            {['Stack', 'Lifecycle', 'Pricing', 'Work', 'Contact'].map(item => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-indigo-600 transition-colors">{item}</a>
+            ))}
+          </div>
+        </div>
+      </nav>
 
-        {/* Navigation */}
-        <nav className="bg-[#1e1e1e] shadow-md  dark:bg-gray-800 dark:shadow-gray-700/20 fixed w-full z-10 transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-white">SM</span>
-              </div>
-              
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
-                <a href="#home" className="text-white dark:text-white hover:text-gray-400 px-3 py-2 font-medium">Home</a>
-                <a href="#about" className="text-white dark:text-white hover:text-grey-400 px-3 py-2 font-medium">About</a>
-                <a href="#skills" className="text-white dark:text-white hover:text-grey-400 px-3 py-2 font-medium">Skills</a>
-                <a href="#services" className="text-white dark:text-white hover:text-grey-400 px-3 py-2 font-medium">Services</a>
-                <a href="#projects" className="text-white dark:text-white hover:text-grey-400 px-3 py-2 font-medium">Projects</a>
-                <a href="#contact" className="text-white dark:text-white hover:text-grey-400 px-3 py-2 font-medium">Contact</a>
-                <button onClick={toggleDarkMode} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
-                  {darkMode ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-              
-              {/* Mobile menu button */}
-              <div className="md:hidden flex items-center">
-                <button onClick={toggleDarkMode} className="p-2 mr-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
-                  {darkMode ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                  )}
-                </button>
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                  aria-expanded="false"
-                >
-                  <span className="sr-only">Open main menu</span>
-                  {!isMenuOpen ? (
-                    <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  ) : (
-                    <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  )}
-                </button>
-              </div>
+      {/* 2. HERO */}
+      <section className="min-h-screen flex flex-col justify-center px-6">
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }} transition={transitionSettings}>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-12 h-[1px] bg-indigo-600"></span>
+              <span className="text-indigo-600 font-bold tracking-[0.3em] uppercase text-[10px]">Senior Full Stack Engineer</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tight mb-8">
+              Engineering <span className="text-slate-300 italic font-serif font-light">Resilient</span> <br />
+              Digital Ecosystems.
+            </h1>
+            <p className="text-xl text-slate-500 max-w-2xl font-light leading-relaxed mb-12">
+              I am <span className="text-black font-semibold">Shammah Maida</span>. I architect high-performance applications with a focus on scale, security, and human-centric design.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. THE STACK (Bento Grid) */}
+      <section id="stack" className="py-24 px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-4">
+          <div className="md:col-span-2 bg-white p-10 rounded-3xl border border-slate-100 flex flex-col justify-between h-80">
+            <Smartphone className="text-indigo-600 w-8 h-8" />
+            <div>
+              <h4 className="text-2xl font-bold mb-4">Mobile Systems</h4>
+              <p className="text-slate-500 text-sm">Flutter & React Native expert specializing in high-fidelity animations and offline-first syncing.</p>
             </div>
           </div>
-
-          {/* Mobile menu, show/hide based on menu state */}
-          {isMenuOpen && (
-            <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 shadow-lg">
-                <a href="#home" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>Home</a>
-                <a href="#about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>About</a>
-                <a href="#skills" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>Skills</a>
-                <a href="#services" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>Services</a>
-                <a href="#projects" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>Projects</a>
-                <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>Contact</a>
-              </div>
-            </div>
-          )}
-        </nav>
-
-        {/* Hero Section */}
-        <section id="home" className="pt-24 pb-12 md:pt-32 md:pb-20 bg-[#1e1e1e] transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <motion.div 
-                className="md:w-1/2 mb-12 md:mb-0"
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn}
-              >
-                <h1 className="flex px-4 justify-center text-4xl sm:text-5xl bg-white md:text-5xl inline-block rounded-4xl font-bold text-gray-900 dark:text-white leading-tight">
-                  Hi, I am  <span className="text-black dark:text-black"> Shammah Maida</span>
-                </h1>
-                <p className="mt-4 text-xl font-bold sm:text-3xl text-white dark:text-white">
-                  Front-End Developer <span className='text-gray-300'>Specializing <br/>in </span>
-                  React, Next.js, React Native, Flutter, html, css, WordPress
-                </p>
-                
-                <p className="mt-6 text-lg text-gray-300 dark:text-gray-300 max-w-lg">
-                  I build responsive, scalabale and modern interfaces.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a 
-                    href="#contact" 
-                    className="px-5 py-3 bg-white  text-black font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Hire Me
-                  </a>
-                  <a 
-                    href="#projects" 
-                    className="px-6 py-3  hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    View Projects
-                  </a>
-                </div>
-              </motion.div>
-              <motion.div 
-                className="md:w-1/2 flex justify-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-br from-black to-[#f7f7f7] p-1">
-                  <div className="absolute inset-1 rounded-full overflow-hidden bg-white dark:bg-gray-800">
-                    <Image src="/sham.jpg" alt="John Doe" width={400} height={400} className="rounded-full" />
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+          <div className="bg-slate-900 text-white p-10 rounded-3xl flex flex-col justify-between">
+            <Server className="text-indigo-400 w-8 h-8" />
+            <p className="text-xl font-bold">Scalable <br />Backends</p>
           </div>
-        </section>
+          <div className="bg-indigo-600 text-white p-10 rounded-3xl flex flex-col justify-between">
+            <Zap className="text-white w-8 h-8" />
+            <p className="text-xl font-bold">Optimization <br />& Audits</p>
+          </div>
+        </div>
+      </section>
 
-        {/* About Section */}
-        <section id="about" className="py-16 md:py-24 bg-[#1e1e1e] dark:bg-gray-900 transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="text-center mb-16"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white">About Me</h2>
-              <div className="mt-2 h-1 w-20 bg-grey-500 mx-auto"></div>
+      {/* ABOUT SECTION */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="text-xs font-bold text-indigo-600 tracking-[0.5em] uppercase mb-4">About Me</h2>
+            <h3 className="text-4xl font-black tracking-tight">Full-Stack Developer</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-5 gap-8 items-start">
+            {/* Image Column - Takes 2 columns */}
+            <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" className="md:col-span-2">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-3xl blur-2xl"></div>
+                <div className="relative overflow-hidden rounded-3xl border border-slate-200">
+                  <Image src="/sham.jpg" alt="Shammah Maida" width={500} height={600} className="w-full" />
+                </div>
+              </div>
             </motion.div>
-
-            <div className="flex flex-col md:flex-row items-center md:space-x-10">
-              <motion.div 
-                className="md:w-2/5 mb-12 md:mb-0"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeIn}
-              >
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-black to-[#d0d0d0] rounded-lg opacity-33 blur"></div>
-                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                    <Image src="/sham.jpg" alt="About Me" width={500} height={400} className="rounded-lg" />
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                className="md:w-3/5"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeIn}
-              >
-                <h3 className="text-2xl font-bold text-white dark:text-white mb-4">Full-Stack Developer</h3>
-                <p className="text-white dark:text-gray-300 mb-6">
-                  With over 2 and a half years of experience in web and mobile development, I specialize in creating robust applications using modern technologies. My expertise spans across the full stack, allowing me to deliver end-to-end solutions that meet business goals and exceed user expectations.
-                </p>
-                <p className="text-white dark:text-gray-300 mb-6">
-                  I am passionate about clean code, performance optimization, and creating intuitive user experiences. My approach combines technical excellence with a deep understanding of user needs to build products that make a real difference.
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div>
-                    <h4 className="font-bold text-white dark:text-white">Name:</h4>
-                    <p className="text-white dark:text-gray-300">Shammah Maida</p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white dark:text-white">Email:</h4>
-                    <p className="text-white dark:text-gray-300">shammahmaida.sm@gmail,com</p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white dark:text-white">Location:</h4>
-                    <p className="text-white dark:text-gray-300">Abuja, Nigeria</p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white dark:text-white">Availability:</h4>
-                    <p className="text-white dark:text-gray-300">Freelance & Full-time</p>
-                  </div>
-                </div>
-                
-                <div className="flex space-x-4">
-                  <a 
-                    href="#contact" 
-                    className="px-6 py-3 bg-white text-black font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Contact Me
-                  </a>
-                  <a 
-                       href="/files/shammahcv.pdf" 
-                       download
-                       className="px-6 py-3  hover:text-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-white font-bold rounded-lg transition-all duration-300"
-                         >
-                      Download CV
-                      </a>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* SKILSS SECTION  */}
-        <section id="skills" className="py-12 md:py-24 bg-[#1e1e1e] dark:bg-gray-800 transition-colors duration-300">
-  <div className="container mx-auto px-4">
-    {/* Section Header */}
-    <div className="text-center mb-12">
-      <h1 className="text-2xl md:text-3xl text-white font-bold">My Skills</h1>
-      <div className="mt-2 h-1 w-20 bg-white mx-auto"></div>
-    </div>
-
-    {/* Skills Display - Desktop Version (hidden on mobile) */}
-    <div className="hidden md:block relative my-24">
-      {/* First div rotated counterclockwise */}
-      <div className="absolute h-20 w-full bg-white border-2 px-6 border-gray-300 transform -rotate-7">       
-        <div className="flex items-center justify-between h-full">
-          <div className="flex items-center">
-            <Image src="/react.png" width={100} height={100} alt="React" className="w-8 h-8" />
-            <span className="ml-2 text-lg">React</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/html.png" width={100} height={100} alt="HTML" className="w-8 h-8" />
-            <span className="ml-2 text-lg">HTML</span>
-          </div>
-
-          <div className="flex items-center">
-            <Image src="/wordpress.png" width={100} height={100} alt="WordPress" className="w-8 h-8" />
-            <span className="ml-2 text-lg">WordPress</span>
-          </div>
-
-          <div className="flex items-center">
-            <Image src="/flutter.png" width={100} height={100} alt="Flutter" className="w-8 h-8" />
-            <span className="ml-2 text-lg">Flutter</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/css.png" width={100} height={100} alt="CSS" className="w-8 h-8" />
-            <span className="ml-2 text-lg">CSS</span>
-          </div>
-
-          <div className="flex items-center">
-            <Image src="/images.jpg" width={100} height={100} alt="Firebase" className="w-8 h-8" />
-            <span className="ml-2 text-lg">Firebase</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/next.png" width={100} height={100} alt="Next.js" className="w-8 h-8" />
-            <span className="ml-2 text-lg">Next.js</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/github.png" width={100} height={100} alt="GitHub" className="w-8 h-8" />
-            <span className="ml-2 text-lg">GitHub</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Second div rotated clockwise */}
-      <div className="absolute h-20 w-full bg-white border-2 px-6 border-gray-300 transform rotate-7">       
-        <div className="flex items-center justify-between h-full">
-          <div className="flex items-center">
-            <Image src="/flutter.png" width={100} height={100} alt="Flutter" className="w-8 h-8" />
-            <span className="ml-2 text-lg">Flutter</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/react.png" width={100} height={100} alt="React Native" className="w-8 h-8" />
-            <span className="ml-2 text-lg">React Native</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/vscode.png" width={100} height={100} alt="VS Code" className="w-8 h-8" />
-            <span className="ml-2 text-lg">VS Code</span>
-          </div>
-          
-          <div className="flex items-center">
-            <Image src="/tailwind.png" width={100} height={100} alt="Tailwind" className="w-8 h-8" />
-            <span className="ml-2 text-lg">Tailwind</span>
-          </div>
-
-          <div className="flex items-center">
-            <Image src="/images.jpg" width={100} height={100} alt="Firebase" className="w-8 h-8" />
-            <span className="ml-2 text-lg">Firebase</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* Skills Display - Mobile Version (shown only on mobile) */}
-    <div className="md:hidden">
-      <div className="grid grid-cols-2 gap-4">
-        {/* First Row */}
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/react.png" width={100} height={100} alt="React" className="w-10 h-10 mb-2" />
-          <span className="text-center">React</span>
-        </div>
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/html.png" width={100} height={100} alt="HTML" className="w-10 h-10 mb-2" />
-          <span className="text-center">HTML</span>
-        </div>
-        
-        {/* Second Row */}
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/wordpress.png" width={100} height={100} alt="WordPress" className="w-10 h-10 mb-2" />
-          <span className="text-center">WordPress</span>
-        </div>
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/flutter.png" width={100} height={100} alt="Flutter" className="w-10 h-10 mb-2" />
-          <span className="text-center">Flutter</span>
-        </div>
-        
-        {/* Third Row */}
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/css.png" width={100} height={100} alt="CSS" className="w-10 h-10 mb-2" />
-          <span className="text-center">CSS</span>
-        </div>
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/images.jpg" width={100} height={100} alt="Firebase" className="w-10 h-10 mb-2" />
-          <span className="text-center">Firebase</span>
-        </div>
-        
-        {/* Fourth Row */}
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/next.png" width={100} height={100} alt="Next.js" className="w-10 h-10 mb-2" />
-          <span className="text-center">Next.js</span>
-        </div>
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/github.png" width={100} height={100} alt="GitHub" className="w-10 h-10 mb-2" />
-          <span className="text-center">GitHub</span>
-        </div>
-        
-        {/* Fifth Row */}
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/react.png" width={100} height={100} alt="React Native" className="w-10 h-10 mb-2" />
-          <span className="text-center">React Native</span>
-        </div>
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/vscode.png" width={100} height={100} alt="VS Code" className="w-10 h-10 mb-2" />
-          <span className="text-center">VS Code</span>
-        </div>
-        
-        {/* Sixth Row */}
-        <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-          <Image src="/tailwind.png" width={100} height={100} alt="Tailwind" className="w-10 h-10 mb-2" />
-          <span className="text-center">Tailwind</span>
-        </div>
-      </div>
-    </div>
-    
-    {/* This div provides space for the crossed divs on desktop */}
-    <div className="hidden md:block h-40"></div>
-  </div>
-</section>
-
-        {/* Services Section */}
-        <section id="services" className="py-16 md:py-24 bg-[#1e1e1e] dark:bg-gray-900 transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="text-center mb-16"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white">Services I Offer</h2>
-              <div className="mt-2 h-1 w-20 bg-black mx-auto"></div>
-              <p className="mt-6 text-lg text-white dark:text-gray-300 max-w-2xl mx-auto">
-                I provide end-to-end development services tailored to your specific needs.
-                From concept to deployment, I am committed to delivering high-quality solutions.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {services.map((service, index) => (
-                <motion.div 
-                  key={index}
-                  className=" dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeIn}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="inline-flex bg-white rounded-4xl p-2 mb-4">
-                   {service.icon}
-                   </div>
-                  <h3 className="text-xl font-bold text-white dark:text-white mb-4">{service.title}</h3>
-                  <p className="text-white dark:text-gray-300">{service.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="py-16 md:py-24 bg-[#1e1e1e] dark:bg-gray-800 transition-colors duration-300">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <motion.div
-      className="text-center mb-12"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeIn}
-    >
-      <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white">My Projects</h2>
-      <div className="mt-2 h-1 w-20 bg-black mx-auto"></div>
-      <p className="mt-6 text-lg text-white dark:text-gray-300 max-w-2xl mx-auto">
-        Here are some of my recent projects that showcase my skills and expertise.
-      </p>
-    </motion.div>
-
-    <div className="flex flex-wrap justify-center gap-4 mb-8">
-      <button 
-        onClick={() => setActiveTab('all')}
-        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-          activeTab === 'all' 
-            ? 'bg-black text-white' 
-            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
-        }`}
-      >
-        All
-      </button>
-      <button 
-        onClick={() => setActiveTab('react')}
-        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-          activeTab === 'react' 
-            ? 'bg-black text-white' 
-            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
-        }`}
-      >
-        React
-      </button>
-      <button 
-        onClick={() => setActiveTab('next')}
-        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-          activeTab === 'next' 
-            ? 'bg-black text-white' 
-            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
-        }`}
-      >
-        Next.js
-      </button>
-      <button 
-        onClick={() => setActiveTab('react-native')}
-        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-          activeTab === 'react-native' 
-            ? 'bg-black text-white' 
-            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
-        }`}
-      >
-        React Native
-      </button>
-      <button 
-        onClick={() => setActiveTab('flutter')}
-        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-          activeTab === 'flutter' 
-            ? 'bg-black text-white' 
-            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
-        }`}
-      >
-        Flutter
-      </button>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      {filteredProjects.map((project) => (
-        <motion.div 
-          key={project.id}
-          className=" dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-        >
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
-            <div className="relative">
-              <Image src={project.image} alt={project.title} width={600} height={400} className="w-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-white">{project.title}</h4>
-                  <p className="text-gray-300 mt-2">{project.description}</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 text-gray-500 dark:text-gray-400">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </div>
-              <p className="text-white dark:text-gray-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="px-3 py-1 bg-white text-black dark:text-blue-200 text-sm rounded-lg">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </a>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-
-        {/* CONTACT SECTION */}
-        <ContactSection />
-
-        {/* FOOTER */}
-        <footer className="bg-[#1e1e1e] text-white py-12">
-          <div className="max-w-15xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-6 md:mb-0">
-                <span className="text-2xl font-bold text-white">SM</span>
-                <p className="mt-2 text-gray-400">Full-Stack Developer</p>
-              </div>
-              
-              <div className="flex flex-wrap justify-center md:justify-end gap-6">
-                <a href="#home" className="text-gray-300 hover:text-white transition-colors duration-300">Home</a>
-                <a href="#about" className="text-gray-300 hover:text-white transition-colors duration-300">About</a>
-                <a href="#skills" className="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors duration-300">Services</a>
-                <a href="#projects" className="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
-                <a href="#contact" className="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
-              </div>
-            </div>
             
-            <div className="border-t border-grey mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400">© {new Date().getFullYear()} Shammah Maida. All Rights Reserved.</p>
+            {/* Content Column - Takes 3 columns */}
+            <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" className="md:col-span-3">
+              <p className="text-slate-600 mb-6 leading-relaxed text-lg">
+                With over 2 and a half years of experience in web and mobile development, I specialize in creating robust applications using modern technologies. My expertise spans across the full stack, allowing me to deliver end-to-end solutions that meet business goals and exceed user expectations.
+              </p>
+              <p className="text-slate-600 mb-10 leading-relaxed text-lg">
+                I am passionate about clean code, performance optimization, and creating intuitive user experiences. My approach combines technical excellence with a deep understanding of user needs to build products that make a real difference.
+              </p>
               
-              <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link 
-                  href="https://github.com/shammah-hub" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                   className="text-gray-400 hover:text-white transition-colors duration-300"
-                    >
-                    <FaGithub size={20} />
-                     </Link>
-
-                <Link 
-                   href="https://linkedin.com/in/shammah-maida123/" 
-                   target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                   >
-                      <FaLinkedin size={20} />
-                   </Link>
-                 <Link 
-                     href="https://www.instagram.com/shammah_m_/" 
-                     target="_blank" 
-                     rel="noopener noreferrer" 
-                      className="text-gray-400 hover:text-white transition-colors duration-300"
-                   >
-                      <FaInstagram size={20} />
-                   </Link>
+              <div className="space-y-6 mb-10">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-indigo-600 font-bold">📍</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1 text-slate-900">Location</h4>
+                    <p className="text-slate-500">Abuja, Nigeria</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-indigo-600 font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1 text-slate-900">Availability</h4>
+                    <p className="text-slate-500">Freelance & Full-time</p>
+                  </div>
+                </div>
               </div>
+              
+              <div className="flex gap-4">
+                <a 
+                  href="#contact" 
+                  className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+                >
+                  Contact Me
+                </a>
+                <a 
+                  href="/files/shammahcv.pdf" 
+                  download
+                  className="px-8 py-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition-colors"
+                >
+                  Download CV
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PRODUCT LIFECYCLE (The Process) */}
+      <section id="lifecycle" className="py-32 px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <h2 className="text-xs font-bold text-indigo-600 tracking-[0.5em] uppercase mb-4 text-center">Development Process</h2>
+            <h3 className="text-4xl font-black tracking-tight text-center">HOW WE BRING IDEAS TO LIFE</h3>
+          </div>
+          <div className="grid md:grid-cols-4 gap-12 relative">
+            {[
+              { icon: <Search />, title: "Discovery", desc: "Defining product scope, stack selection, and mapping the user journey." },
+              { icon: <Palette />, title: "Architecture", desc: "Designing system schemas and modular UI components for scalability." },
+              { icon: <Terminal />, title: "Engineering", desc: "Clean, type-safe development with daily sprints and CI/CD integration." },
+              { icon: <Rocket />, title: "Launch & QA", desc: "Stress testing, store submission, and post-launch performance monitoring." }
+            ].map((step, i) => (
+              <motion.div key={i} variants={fadeInUp} initial="initial" whileInView="whileInView" transition={{ delay: i * 0.1 }} className="relative z-10 text-center md:text-left">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 text-indigo-600 border border-slate-100 shadow-sm mx-auto md:mx-0">
+                  {step.icon}
+                </div>
+                <h4 className="text-xl font-bold mb-4">0{i+1}. {step.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+            <div className="hidden md:block absolute top-7 left-0 w-full h-[1px] bg-slate-200 -z-0" />
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PRICING & ENGAGEMENT */}
+      <section id="pricing" className="py-32 px-6 bg-slate-900 text-white rounded-[4rem] mx-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20 text-center">
+            <h2 className="text-xs font-bold text-indigo-400 tracking-[0.5em] uppercase mb-4">Engagement</h2>
+            <h3 className="text-4xl font-black tracking-tight">INVESTMENT MODELS</h3>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { plan: "Consulting", price: "$70/hr", icon: <Clock />, perks: ["Code Audits", "Feature Refactors", "Technical Advice"] },
+              { plan: "Fixed Project", price: "Custom", icon: <Briefcase />, perks: ["Full Product Builds", "Defined Milestones", "Post-Launch Support"] },
+              { plan: "Retainer", price: "Priority", icon: <Shield />, perks: ["Dedicated Weekly Hours", "Emergency Fixes", "Continuous Dev"] }
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeInUp} initial="initial" whileInView="whileInView" className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5 hover:border-indigo-500 transition-colors">
+                <div className="text-indigo-400 mb-8">{item.icon}</div>
+                <h4 className="text-2xl font-bold mb-2">{item.plan}</h4>
+                <p className="text-3xl font-black mb-8">{item.price}</p>
+                <ul className="space-y-4">
+                  {item.perks.map((perk, j) => (
+                    <li key={j} className="flex items-center gap-3 text-slate-400 text-sm">
+                      <CheckCircle className="w-4 h-4 text-indigo-500" /> {perk}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WORK (Case Studies with Tabs) */}
+      <section id="work" className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-4xl font-black tracking-tight mb-12 text-center">SELECTED WORK</h3>
+          
+          {/* Project Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            <button 
+              onClick={() => setActiveTab('all')}
+              className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all ${
+                activeTab === 'all' 
+                  ? 'bg-indigo-600 text-white shadow-lg' 
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              All
+            </button>
+            <button 
+              onClick={() => setActiveTab('react')}
+              className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all ${
+                activeTab === 'react' 
+                  ? 'bg-indigo-600 text-white shadow-lg' 
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              React
+            </button>
+            <button 
+              onClick={() => setActiveTab('next')}
+              className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all ${
+                activeTab === 'next' 
+                  ? 'bg-indigo-600 text-white shadow-lg' 
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              Next.js
+            </button>
+            <button 
+              onClick={() => setActiveTab('flutter')}
+              className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all ${
+                activeTab === 'flutter' 
+                  ? 'bg-indigo-600 text-white shadow-lg' 
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              Flutter
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((p) => (
+              <motion.a 
+                key={p.id} 
+                variants={fadeInUp} 
+                initial="initial" 
+                whileInView="whileInView" 
+                href={p.link} 
+                className="group bg-white p-4 rounded-[2rem] border border-slate-100 block hover:shadow-xl transition-all"
+              >
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6">
+                  <img src={p.image} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={p.title} />
+                </div>
+                <div className="px-4 pb-4">
+                  <div className="flex justify-between items-start mb-4">
+                    <h4 className="text-xl font-bold">{p.title}</h4>
+                    <ArrowUpRight className="text-slate-300 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
+                  </div>
+                  <p className="text-slate-500 text-sm mb-4">{p.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {p.technologies.map((tech, index) => (
+                      <span key={index} className="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. TECHNICAL SERVICES */}
+      <section className="py-32 px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
+          <div>
+            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6"><Code2 className="text-indigo-600" /></div>
+            <h3 className="text-xl font-bold mb-4">Mobile Engineering</h3>
+            <p className="text-slate-500 text-sm">Cross-platform mastery for iOS & Android with a single codebase.</p>
+          </div>
+          <div>
+            <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mb-6"><Cpu className="text-slate-900" /></div>
+            <h3 className="text-xl font-bold mb-4">Systems Design</h3>
+            <p className="text-slate-500 text-sm">Architecting the skeletal framework of complex web applications.</p>
+          </div>
+          <div>
+            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6"><ShieldCheck className="text-indigo-600" /></div>
+            <h3 className="text-xl font-bold mb-4">Security Audits</h3>
+            <p className="text-slate-500 text-sm">Hardening data protection and ensuring API integrity.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. TESTIMONIALS (Minimal Floating Design) */}
+      <section className="py-32 px-6 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto relative">
+          <Quote className="absolute top-0 left-0 w-32 h-32 text-indigo-500 opacity-10 -translate-x-12 -translate-y-12" />
+          <div className="grid md:grid-cols-2 gap-24 relative z-10">
+            <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView">
+              <p className="text-3xl font-light italic leading-tight mb-8">"Shammah brings a level of technical foresight that saved our project months of refactoring."</p>
+              <div className="flex items-center gap-4 text-indigo-400 font-bold text-xs uppercase tracking-widest"><span className="w-8 h-[1px] bg-indigo-500"></span> Lead Architect, Payton</div>
+            </motion.div>
+            <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" className="md:mt-32">
+              <p className="text-3xl font-light italic leading-tight mb-8">"Professional, disciplined, and delivers code that is a joy to read."</p>
+              <div className="flex items-center gap-4 text-indigo-400 font-bold text-xs uppercase tracking-widest"><span className="w-8 h-[1px] bg-indigo-500"></span> Founder, Talim</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. ROADMAP (Future Focus) */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-xs font-bold text-indigo-600 tracking-[0.5em] uppercase mb-16">Future Roadmap</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 border-l border-slate-200">
+              <h4 className="font-bold mb-4 text-lg">AI & Mobile</h4>
+              <p className="text-slate-400 text-sm">On-device ML models for smarter logistics routing.</p>
+            </div>
+            <div className="p-8 border-l border-slate-200">
+              <h4 className="font-bold mb-4 text-lg">Rust Backend</h4>
+              <p className="text-slate-400 text-sm">Implementing high-speed calculation engines in Rust.</p>
+            </div>
+            <div className="p-8 border-l border-slate-200">
+              <h4 className="font-bold mb-4 text-lg">Open Source</h4>
+              <p className="text-slate-400 text-sm">Launching a UI kit for African Fintech applications.</p>
             </div>
           </div>
-        </footer>
-        
-      </div>
+        </div>
+      </section>
+
+      {/* 10. FOOTER & STATUS */}
+      <footer id="contact" className="py-24 px-6 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+             <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Available for Feb 2026 Projects</span>
+             </div>
+             <a href="mailto:shammahmaida.sm@gmail.com" className="text-2xl md:text-4xl font-black hover:text-indigo-600 transition-colors tracking-tighter block">shammahmaida.sm@gmail.com</a>
+             <a href="tel:+2347042924951" className="text-base text-slate-600 hover:text-indigo-600 transition-colors mt-3 block">+234 704 292 4951</a>
+          </div>
+          <div className="flex gap-4">
+            <a href="https://github.com/shammah-hub" className="p-5 bg-slate-50 rounded-2xl hover:bg-black hover:text-white transition-all"><Github className="w-5 h-5" /></a>
+            <a href="https://linkedin.com/in/shammah-maida123/" className="p-5 bg-slate-50 rounded-2xl hover:bg-black hover:text-white transition-all"><Linkedin className="w-5 h-5" /></a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
