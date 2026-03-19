@@ -279,6 +279,7 @@ export default function Homepage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 text-center">
             <h2 className="text-xs font-bold text-indigo-400 tracking-[0.5em] uppercase mb-4">Engagement</h2>
+            
             <h3 className="text-4xl font-black tracking-tight">INVESTMENT MODELS</h3>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
