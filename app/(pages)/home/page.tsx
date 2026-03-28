@@ -114,7 +114,25 @@ export default function Homepage() {
       image: "/24.10.2025_22.23.03_REC.png",
       category: ["react", "next"],
       technologies: ["Next.js", "React"],
-      link: "https://circlepaytech.com//"
+      link: "https://circlepaytech.com/"
+    },
+    {
+      id: 9,
+      title: "Ethnihub",
+      description: "A diaspora super-app built for multicultural communities in Finland. Order food, shop cultural markets, book care services, and discover events — all under one roof.",
+      image: "/2REC.png",
+      category: ["react", "next"],
+      technologies: ["Next.js", "React"],
+      link: "https://customer.ethnihub.fi/"
+    },
+     {
+      id: 10,
+      title: "Avaflow",
+      description: "An AI-powered mental wellness companion that listens, understands, and supports emotional well-being through natural voice-driven interaction — available 24/7, judgment-free.",
+      image: "/avaflow.png",
+      category: ["react", "next"],
+      technologies: ["Next.js", "React"],
+      link: "https://avaflow.ai/"
     },
   ];
 
