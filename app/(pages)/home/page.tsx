@@ -217,7 +217,7 @@ export default function Homepage() {
             {/* Content Column - Takes 3 columns */}
             <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" className="md:col-span-3">
               <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                With over 2 and a half years of experience in web and mobile development, I specialize in creating robust applications using modern technologies. My expertise spans across the full stack, allowing me to deliver end-to-end solutions that meet business goals and exceed user expectations.
+                With 6 years of experience in web and mobile development, I specialize in creating robust applications using modern technologies. My expertise spans across the full stack, allowing me to deliver end-to-end solutions that meet business goals and exceed user expectations.
               </p>
               <p className="text-slate-600 mb-10 leading-relaxed text-lg">
                 I am passionate about clean code, performance optimization, and creating intuitive user experiences. My approach combines technical excellence with a deep understanding of user needs to build products that make a real difference.
