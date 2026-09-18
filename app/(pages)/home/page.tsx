@@ -64,6 +64,15 @@ export default function Homepage() {
     },
     {
       id: 3,
+      title: "PropX Real Estate",
+      description: "Boutique real estate platform for browsing property listings, filtering by sale/rent/short-let, and connecting buyers with agents",
+      image: "/propx.png",
+      category: ["react", "Nextjs"],
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      link: "https://propx-phi.vercel.app/"
+    },
+    {
+      id: 4,
       title: "CloudDust",
       description: "Clouddust is an online literary entertainment platform that offers users the best of literature from emerging writers from across the globe",
       image: "/clouddust.png",
@@ -72,7 +81,7 @@ export default function Homepage() {
       link: "https://play.google.com/store/apps/details?id=clouddust.app"
     },
     {
-      id: 4,
+      id: 5,
       title: "Skribe",
       description: "Subscription Management App",
       image: "/skribe.png",
@@ -81,7 +90,7 @@ export default function Homepage() {
       link: "https://skribe-website.vercel.app/"
     },
     {
-      id: 5,
+      id: 6,
       title: "Nabteb",
       description: "National Business and Technical Examinations Board",
       image: "/nbtb.png",
@@ -90,7 +99,7 @@ export default function Homepage() {
       link: "https://nabteb.example.com"
     },
     {
-      id: 6,
+      id: 7,
       title: "Talim",
       description: "Full-featured school managment platform with payment integration",
       image: "/vi.png",
@@ -99,7 +108,7 @@ export default function Homepage() {
       link: "https://www.mytalim.com/"
     },
     {
-      id: 7,
+      id: 8,
       title: "Empower Dreams",
       description: "Creating meaningful change in communities worldwide",
       image: "/REC.png",
@@ -108,7 +117,7 @@ export default function Homepage() {
       link: "https://www.empowerdreamz.org/"
     },
     {
-      id: 8,
+      id: 9,
       title: "Circlepay",
       description: "Technology powered contributions meet cultural savings values. Digitized Ajo. Real-time visibility. Zero drama.",
       image: "/24.10.2025_22.23.03_REC.png",
@@ -117,7 +126,7 @@ export default function Homepage() {
       link: "https://circlepaytech.com/"
     },
     {
-      id: 9,
+      id: 10,
       title: "Ethnihub",
       description: "A diaspora super-app built for multicultural communities in Finland. Order food, shop cultural markets, book care services, and discover events — all under one roof.",
       image: "/2REC.png",
@@ -126,7 +135,7 @@ export default function Homepage() {
       link: "https://customer.ethnihub.fi/"
     },
      {
-      id: 10,
+      id: 11,
       title: "Avaflow",
       description: "An AI-powered mental wellness companion that listens, understands, and supports emotional well-being through natural voice-driven interaction — available 24/7, judgment-free.",
       image: "/avaflow.png",
