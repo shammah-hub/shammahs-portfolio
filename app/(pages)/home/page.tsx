@@ -44,116 +44,115 @@ export default function Homepage() {
   }, []);
 
   const projects = [
-    {
-      id: 1,
-      title: "payton",
-      description: "Revolutionizing Financial Management Simplify and streamline your institution's finances with payton's innovative platform",
-      image: "/payton.png",
-      category: ["flutter"],
-      technologies: ["flutter"],
-      link: "https://play.google.com/store/apps/details?id=com.payton.app&hl=en/"
-    },
-    {
-      id: 2,
-      title: "ChopWell Mobile App",
-      description: "Cross-platform mobile app for othering food delivery riders to manage orders, track deliveries, and communicate with customers",
-      image: "/chopwell.png",
-      category: ["flutter"],
-      technologies: ["React Native", "Firebase", "Redux"],
-      link: "https://play.google.com/store/apps/details?id=chopwell.rider&hl=en"
-    },
-    {
-      id: 3,
-      title: "PropX Real Estate",
-      description: "Boutique real estate platform for browsing property listings, filtering by sale/rent/short-let, and connecting buyers with agents",
-      image: "/propx.png",
-      category: ["react", "Nextjs"],
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      link: "https://propx-phi.vercel.app/"
-    },
-    {
-      id: 4,
-      title: "CloudDust",
-      description: "Clouddust is an online literary entertainment platform that offers users the best of literature from emerging writers from across the globe",
-      image: "/clouddust.png",
-      category: ["flutter"],
-      technologies: ["flutter", "FireBase"],
-      link: "https://play.google.com/store/apps/details?id=clouddust.app"
-    },
-    {
-      id: 5,
-      title: "Skribe",
-      description: "Subscription Management App",
-      image: "/skribe.png",
-      category: ["flutter"],
-      technologies: ["Flutter", "FireBase"],
-      link: "https://skribe-website.vercel.app/"
-    },
-     {
-      id: 11,
-      title: "Truust",
-      description: "A social e-commerce escrow and rider dispatch platform that secures online buyer-seller transactions and automates last-mile logistics.",
-      image: "/truust.png",
-      category: ["react", "next", "flutter"],
-      technologies: ["Next.js", "React", "Flutter", "Firebase"],
-      link: "https://truust.com.ng/"
-    },
-    {
-      id: 6,
-      title: "Nabteb",
-      description: "National Business and Technical Examinations Board",
-      image: "/nbtb.png",
-      category: ["next", "react"],
-      technologies: ["next"],
-      link: "https://nabteb.example.com"
-    },
-    {
-      id: 7,
-      title: "Talim",
-      description: "Full-featured school managment platform with payment integration",
-      image: "/vi.png",
-      category: ["react", "next"],
-      technologies: ["Next.js", "React"],
-      link: "https://www.mytalim.com/"
-    },
-    {
-      id: 8,
-      title: "Empower Dreams",
-      description: "Creating meaningful change in communities worldwide",
-      image: "/REC.png",
-      category: ["react", "next"],
-      technologies: ["Next.js", "React"],
-      link: "https://www.empowerdreamz.org/"
-    },
-    {
-      id: 9,
-      title: "Circlepay",
-      description: "Technology powered contributions meet cultural savings values. Digitized Ajo. Real-time visibility. Zero drama.",
-      image: "/24.10.2025_22.23.03_REC.png",
-      category: ["react", "next"],
-      technologies: ["Next.js", "React"],
-      link: "https://circlepaytech.com/"
-    },
-    {
-      id: 10,
-      title: "Ethnihub",
-      description: "A diaspora super-app built for multicultural communities in Finland. Order food, shop cultural markets, book care services, and discover events — all under one roof.",
-      image: "/2REC.png",
-      category: ["react", "next"],
-      technologies: ["Next.js", "React"],
-      link: "https://customer.ethnihub.fi/"
-    },
-     {
-      id: 11,
-      title: "Avaflow",
-      description: "An AI-powered mental wellness companion that listens, understands, and supports emotional well-being through natural voice-driven interaction — available 24/7, judgment-free.",
-      image: "/avaflow.png",
-      category: ["react", "next"],
-      technologies: ["Next.js", "React"],
-      link: "https://avaflow.ai/"
-    },
-  
-  ];
+  {
+    id: 1,
+    title: "payton",
+    description: "Revolutionizing Financial Management Simplify and streamline your institution's finances with payton's innovative platform",
+    image: "/payton.png",
+    category: ["flutter"],
+    technologies: ["flutter"],
+    link: "https://play.google.com/store/apps/details?id=com.payton.app&hl=en/"
+  },
+  {
+    id: 2,
+    title: "ChopWell Mobile App",
+    description: "Cross-platform mobile app for othering food delivery riders to manage orders, track deliveries, and communicate with customers",
+    image: "/chopwell.png",
+    category: ["flutter"],
+    technologies: ["React Native", "Firebase", "Redux"],
+    link: "https://play.google.com/store/apps/details?id=chopwell.rider&hl=en"
+  },
+  {
+    id: 3,
+    title: "PropX Real Estate",
+    description: "Boutique real estate platform for browsing property listings, filtering by sale/rent/short-let, and connecting buyers with agents",
+    image: "/propx.png",
+    category: ["react", "Nextjs"],
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    link: "https://propx-phi.vercel.app/"
+  },
+  {
+    id: 4,
+    title: "CloudDust",
+    description: "Clouddust is an online literary entertainment platform that offers users the best of literature from emerging writers from across the globe",
+    image: "/clouddust.png",
+    category: ["flutter"],
+    technologies: ["flutter", "FireBase"],
+    link: "https://play.google.com/store/apps/details?id=clouddust.app"
+  },
+  {
+    id: 5,
+    title: "Skribe",
+    description: "Subscription Management App",
+    image: "/skribe.png",
+    category: ["flutter"],
+    technologies: ["Flutter", "FireBase"],
+    link: "https://skribe-website.vercel.app/"
+  },
+  {
+    id: 6,
+    title: "Truust",
+    description: "A social e-commerce escrow and rider dispatch platform that secures online buyer-seller transactions and automates last-mile logistics.",
+    image: "/truust.png",
+    category: ["react", "next", "flutter"],
+    technologies: ["Next.js", "React", "Flutter", "Firebase"],
+    link: "https://truust.com.ng/"
+  },
+  {
+    id: 7,
+    title: "Nabteb",
+    description: "National Business and Technical Examinations Board",
+    image: "/nbtb.png",
+    category: ["next", "react"],
+    technologies: ["next"],
+    link: "https://nabteb.example.com"
+  },
+  {
+    id: 8,
+    title: "Talim",
+    description: "Full-featured school managment platform with payment integration",
+    image: "/vi.png",
+    category: ["react", "next"],
+    technologies: ["Next.js", "React"],
+    link: "https://www.mytalim.com/"
+  },
+  {
+    id: 9,
+    title: "Empower Dreams",
+    description: "Creating meaningful change in communities worldwide",
+    image: "/REC.png",
+    category: ["react", "next"],
+    technologies: ["Next.js", "React"],
+    link: "https://www.empowerdreamz.org/"
+  },
+  {
+    id: 10,
+    title: "Circlepay",
+    description: "Technology powered contributions meet cultural savings values. Digitized Ajo. Real-time visibility. Zero drama.",
+    image: "/24.10.2025_22.23.03_REC.png",
+    category: ["react", "next"],
+    technologies: ["Next.js", "React"],
+    link: "https://circlepaytech.com/"
+  },
+  {
+    id: 11,
+    title: "Ethnihub",
+    description: "A diaspora super-app built for multicultural communities in Finland. Order food, shop cultural markets, book care services, and discover events — all under one roof.",
+    image: "/2REC.png",
+    category: ["react", "next"],
+    technologies: ["Next.js", "React"],
+    link: "https://customer.ethnihub.fi/"
+  },
+  {
+    id: 12,
+    title: "Avaflow",
+    description: "An AI-powered mental wellness companion that listens, understands, and supports emotional well-being through natural voice-driven interaction — available 24/7, judgment-free.",
+    image: "/avaflow.png",
+    category: ["react", "next"],
+    technologies: ["Next.js", "React"],
+    link: "https://avaflow.ai/"
+  },
+];
 
   const filteredProjects = activeTab === 'all' 
     ? projects 
