@@ -89,6 +89,15 @@ export default function Homepage() {
       technologies: ["Flutter", "FireBase"],
       link: "https://skribe-website.vercel.app/"
     },
+     {
+      id: 11,
+      title: "Truust",
+      description: "A social e-commerce escrow and rider dispatch platform that secures online buyer-seller transactions and automates last-mile logistics.",
+      image: "/truust.png",
+      category: ["react", "next", "flutter"],
+      technologies: ["Next.js", "React", "Flutter", "Firebase"],
+      link: "https://truust.com.ng/"
+    },
     {
       id: 6,
       title: "Nabteb",
@@ -143,6 +152,7 @@ export default function Homepage() {
       technologies: ["Next.js", "React"],
       link: "https://avaflow.ai/"
     },
+  
   ];
 
   const filteredProjects = activeTab === 'all' 
