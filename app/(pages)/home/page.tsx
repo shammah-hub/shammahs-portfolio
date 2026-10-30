@@ -84,10 +84,10 @@ export default function Homepage() {
     id: 5,
     title: "Skribe",
     description: "Subscription Management App",
-    image: "/skribe.png",
+    image: "/skribesub.png",
     category: ["flutter"],
     technologies: ["Flutter", "FireBase"],
-    link: "https://skribe-website.vercel.app/"
+    link: "https://skribesub.com"
   },
   {
     id: 6,
